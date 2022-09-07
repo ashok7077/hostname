@@ -11,7 +11,7 @@
 	<groupId>net.javaguides</groupId>
 	<artifactId>employee-management-webapp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>employee-management-webapp</name>
+	<name>employee</name>
 	<packaging>jar</packaging>
 	<description>Demo project for Spring Boot Thymeleaf and Hibernate </description>
 
