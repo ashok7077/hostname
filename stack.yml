@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  measurments-app:
+    image: employee
+    stop_grace_period: 2m
+    ports: ["8080:8080"]
+    environment:
+      - _JAVA_OPTIONS=-Xmx1g -Xms1g
+      - SPRING_PROFILES_ACTIVE=prod
+    healthcheck:
+      test: "curl --silent --output /dev/null http://localhost:8080; if [[ $$? == 0 ]]; then echo 0; else echo 1; fi"
+      interval: 100s
+      timeout: 10s
+      retries: 5
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 1
+        delay: 100s
+      restart_policy:
+        condition: on-failure
